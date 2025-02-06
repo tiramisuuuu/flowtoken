@@ -1,6 +1,6 @@
-import React from 'react';
-import './animations.css';
-import './custom-lists.css';
+import React from "react";
+import "./animations.css";
+import "./custom-lists.css";
 interface SmoothTextProps {
     content: string;
     sep?: string;
@@ -16,6 +16,6 @@ interface CustomRendererProps {
     stylesheet: any;
     useInlineStyles: boolean;
 }
-export declare const customCodeRenderer: ({ animation, animationDuration, animationTimingFunction }: any) => ({ rows, stylesheet, useInlineStyles }: CustomRendererProps) => React.JSX.Element[];
+export declare const customCodeRenderer: ({ animation, animationDuration, animationTimingFunction, }: any) => ({ rows, stylesheet, useInlineStyles }: CustomRendererProps) => React.JSX.Element[];
 declare const MarkdownAnimateText: React.FC<SmoothTextProps>;
 export default MarkdownAnimateText;
