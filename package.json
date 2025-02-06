@@ -8,7 +8,7 @@
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "cd node_modules/flowtoken && npm run build"
+    "postinstall": "tsc --outDir ./build"
   },
   "keywords": [
     "ai",
