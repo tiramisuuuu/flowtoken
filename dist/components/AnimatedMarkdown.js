@@ -136,9 +136,17 @@ const MarkdownAnimateText = ({ content, sep = "word", animation = "fadeIn", anim
         let parts = [];
         let lastIndex = 0;
         if (fullPatterns.length === 0) {
-            return [
-                react_1.default.createElement(TokenizedText, { input: text, sep: sep, animation: animation, animationDuration: animationDuration, animationTimingFunction: animationTimingFunction, animationIterationCount: 1 }),
-            ];
+            return ["fullpatterns is empty"];
+            // return [
+            //   <TokenizedText
+            //     input={text}
+            //     sep={sep}
+            //     animation={animation}
+            //     animationDuration={animationDuration}
+            //     animationTimingFunction={animationTimingFunction}
+            //     animationIterationCount={1}
+            //   />,
+            // ];
         }
         // Use matchAll to find each match and its position
         for (const match of remainingText.matchAll(regex)) {

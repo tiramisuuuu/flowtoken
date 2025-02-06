@@ -228,16 +228,17 @@ const MarkdownAnimateText: React.FC<SmoothTextProps> = ({
       let lastIndex = 0;
 
       if (fullPatterns.length === 0) {
-        return [
-          <TokenizedText
-            input={text}
-            sep={sep}
-            animation={animation}
-            animationDuration={animationDuration}
-            animationTimingFunction={animationTimingFunction}
-            animationIterationCount={1}
-          />,
-        ];
+        return ["fullpatterns is empty"];
+        // return [
+        //   <TokenizedText
+        //     input={text}
+        //     sep={sep}
+        //     animation={animation}
+        //     animationDuration={animationDuration}
+        //     animationTimingFunction={animationTimingFunction}
+        //     animationIterationCount={1}
+        //   />,
+        // ];
       }
 
       // Use matchAll to find each match and its position
