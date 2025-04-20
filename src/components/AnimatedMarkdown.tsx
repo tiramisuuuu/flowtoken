@@ -2,6 +2,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import style from "react-syntax-highlighter/dist/esm/styles/hljs/docco";
 import "./animations.css";
@@ -558,7 +559,11 @@ const MarkdownAnimateText: React.FC<SmoothTextProps> = ({
   );
 
   return (
-    <ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+    <ReactMarkdown
+      components={components}
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+    >
       {content}
     </ReactMarkdown>
   );
