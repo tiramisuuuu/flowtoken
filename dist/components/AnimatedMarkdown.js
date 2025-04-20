@@ -19,6 +19,7 @@ exports.customCodeRenderer = void 0;
 const react_1 = __importDefault(require("react"));
 const react_markdown_1 = __importDefault(require("react-markdown"));
 const remark_gfm_1 = __importDefault(require("remark-gfm"));
+const rehype_raw_1 = __importDefault(require("rehype-raw"));
 const react_syntax_highlighter_1 = require("react-syntax-highlighter");
 const docco_1 = __importDefault(require("react-syntax-highlighter/dist/esm/styles/hljs/docco"));
 require("./animations.css");
@@ -320,6 +321,6 @@ const MarkdownAnimateText = ({ content, sep = "word", animation = "fadeIn", anim
             var { node } = _a, props = __rest(_a, ["node"]);
             return (react_1.default.createElement("td", Object.assign({}, props), animateText(props.children)));
         } }, htmlComponents)), [animateText]);
-    return (react_1.default.createElement(react_markdown_1.default, { components: components, remarkPlugins: [remark_gfm_1.default] }, content));
+    return (react_1.default.createElement(react_markdown_1.default, { components: components, remarkPlugins: [remark_gfm_1.default], rehypePlugins: [rehype_raw_1.default] }, content));
 };
 exports.default = MarkdownAnimateText;
