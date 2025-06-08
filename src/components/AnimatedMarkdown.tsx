@@ -18,6 +18,7 @@ interface SmoothTextProps {
   codeStyle?: any;
   htmlComponents?: any;
   customComponents?: any;
+  disableGfm?: boolean;
 }
 
 interface AnimatedImageProps {
@@ -169,6 +170,7 @@ const MarkdownAnimateText: React.FC<SmoothTextProps> = ({
   codeStyle = null,
   htmlComponents = {},
   customComponents = {},
+  disableGfm = false,
 }) => {
   customComponents = React.useMemo(() => {
     return Object.entries(customComponents).reduce(
@@ -558,10 +560,12 @@ const MarkdownAnimateText: React.FC<SmoothTextProps> = ({
     [animateText]
   );
 
+  const remarkPlugins = disableGfm ? [] : [remarkGfm];
+
   return (
     <ReactMarkdown
       components={components}
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={remarkPlugins}
       rehypePlugins={[rehypeRaw]}
     >
       {content}

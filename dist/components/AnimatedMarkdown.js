@@ -93,7 +93,7 @@ const customCodeRenderer = ({ animation, animationDuration, animationTimingFunct
     });
 };
 exports.customCodeRenderer = customCodeRenderer;
-const MarkdownAnimateText = ({ content, sep = "word", animation = "fadeIn", animationDuration = "1s", animationTimingFunction = "ease-in-out", codeStyle = null, htmlComponents = {}, customComponents = {}, }) => {
+const MarkdownAnimateText = ({ content, sep = "word", animation = "fadeIn", animationDuration = "1s", animationTimingFunction = "ease-in-out", codeStyle = null, htmlComponents = {}, customComponents = {}, disableGfm = false, }) => {
     customComponents = react_1.default.useMemo(() => {
         return Object.entries(customComponents).reduce((acc, [pattern, component]) => {
             if (!pattern.startsWith("/") && !pattern.endsWith("/")) {
@@ -321,6 +321,7 @@ const MarkdownAnimateText = ({ content, sep = "word", animation = "fadeIn", anim
             var { node } = _a, props = __rest(_a, ["node"]);
             return (react_1.default.createElement("td", Object.assign({}, props), animateText(props.children)));
         } }, htmlComponents)), [animateText]);
-    return (react_1.default.createElement(react_markdown_1.default, { components: components, remarkPlugins: [remark_gfm_1.default], rehypePlugins: [rehype_raw_1.default] }, content));
+    const remarkPlugins = disableGfm ? [] : [remark_gfm_1.default];
+    return (react_1.default.createElement(react_markdown_1.default, { components: components, remarkPlugins: remarkPlugins, rehypePlugins: [rehype_raw_1.default] }, content));
 };
 exports.default = MarkdownAnimateText;

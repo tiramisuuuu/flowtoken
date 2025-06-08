@@ -10,6 +10,7 @@ interface SmoothTextProps {
     codeStyle?: any;
     htmlComponents?: any;
     customComponents?: any;
+    disableGfm?: boolean;
 }
 interface CustomRendererProps {
     rows: any[];
